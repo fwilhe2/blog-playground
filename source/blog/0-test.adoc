@@ -1,1 +1,5 @@
-foo
+= Content is Sovereign
+Dan Allen
+:revdate: 2017-11-16 09:00
+:description: In this article, we present a new way of organizing content for documentation sites that respects and utilizes the content's sovereignty.
+:keywords: modular documentation, docs as code, git, Antora, information architecture
