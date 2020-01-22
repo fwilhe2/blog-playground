@@ -1,0 +1,22 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: eregon/use-ruby-action@v1
+      with:
+        ruby-version: 2.6
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+
+    - name: Run a multi-line script
+      run: |
+        ruby -v
+        node -v
