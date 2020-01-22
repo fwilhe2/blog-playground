@@ -85,8 +85,4 @@ configure :production do
   set :http_prefix, (ENV.fetch 'HTTP_PREFIX', '/')
   config.slim[:indent] = ''
   activate :autoprefixer
-  require_relative 'lib/css_compressor'
-  activate :minify_css, compressor: CssCompressor
-  activate :minify_javascript
-  activate :google_analytics, tracking_id: 'UA-69249749-1', minify: true
 end
