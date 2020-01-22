@@ -20,3 +20,7 @@ jobs:
       run: |
         ruby -v
         node -v
+        npm i
+        bundle --path=.bundle/gems
+        bundle exec rake build
+        find .
