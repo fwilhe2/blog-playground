@@ -1,0 +1,11 @@
+title: OpenDevise
+baseurl: https://opendevise.com
+description: We are writers, developers, and system architects. We help organizations achieve faster growth through better documentation.
+keywords: documentation, content, strategy, information architecture, development, Open Source, community, AsciiDoc, Asciidoctor, Antora
+author: OpenDevise Inc.
+copyright: OpenDevise Inc. (c) {year}
+twitter: '@opendevise'
+blog:
+  title: Docs Dispatch
+  subtitle: News, ideas &amp; insights
+  description: Ideas, insights, and experiences from OpenDevise about documentation as well as news about our company and products.
