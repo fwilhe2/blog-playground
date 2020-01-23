@@ -46,10 +46,12 @@ activate :asciidoc, attributes: ['idprefix=_', 'idseparator=-', 'sectanchors=aft
 activate :blog do |blog|
   blog.prefix = 'blog'
   blog.default_extension = '.adoc'
+  blog.layout = 'article'
   blog.tag_template = 'blog/tag'
   blog.sources = '{seq}-{title}.html'
   blog.permalink = '{title}.html'
   blog.taglink = 'tag/{tag}.html'
+  blog.filter = -> article { article.data.published != false } unless ENV['FORCE_PUBLISH'] == 'true'
   blog.publish_future_dated = true if ENV['CONTEXT'] == 'deploy-preview'
   #blog.summary_length = 250
   blog.summary_generator = proc do |resource|
