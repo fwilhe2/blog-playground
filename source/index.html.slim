@@ -1,0 +1,62 @@
+section.hero.is-primary.is-bold.is-fullheight
+  header.header.hero-head role='banner'
+    = partial '/_partials/navbar', locals: { color: 'transparent' }
+  .hero-body
+    .container
+      h1.title
+        span.line> Ship your documentation
+        span.line as fast as your product.
+      p.subtitle We provide tools and workflows that help teams coordinate documentation initiatives across products and departments.
+section#services.section
+  .container
+    h2.title Services
+    .columns
+      .column.is-5
+        h3.title.is-spaced Antora Documentation Pipelines
+        p.subtitle We develop automated tools and build processes that take the complexity, effort, and anxiety out of deploying documentation sites.
+      .column.is-5.is-offset-1
+        h3.title.is-spaced DevOps for Documentation Teams
+        p.subtitle We upgrade teams to modern and agile workflows for creating, reviewing, testing, and publishing documentation composed in AsciiDoc.
+section#expertise.section.is-alternative.is-medium
+  .container
+    .columns.is-vcentered.is-desktop
+      .column.is-one-quarter
+        h2.title Asciidoctor &amp; AsciiDoc
+      .column.is-offset-1
+        h3.subtitle We’re the AsciiDoc and Asciidoctor experts.
+        p.desc As the maintainers of the leading AsciiDoc processor, Asciidoctor, we have a deep understanding of how to best integrate and adapt AsciiDoc into your documentation team’s workflow. Here are just a few ways we help teams save time, minimize risk, and increase their technical writing and publishing productivity.
+        ul.columns.is-multiline
+          li.column.is-half.tick Toolchain setup &amp; configuration
+          li.column.is-half.tick Content migration
+          li.column.is-half.tick Content architecture &amp; validation
+          li.column.is-half.tick Publishing pipeline design
+          li.column.is-half.tick Extension &amp; UI development
+          li.column.is-half.tick Hands-on training
+- articles = featured_articles
+section#blog.section.blog-menu
+  .container
+    h2.title Signals from the Docs Dispatch
+    .tile.is-ancestor
+      .tile.is-parent
+        = partial '/_partials/article-card', locals: { article: articles[0], classes: %w(tile is-child), featured: true }
+    .tile.is-ancestor
+      - if articles.length > 1
+        .tile.is-parent.is-5
+          = partial '/_partials/article-card', locals: { article: articles[1], classes: %w(tile is-child) }
+      .tile.is-parent
+        - if articles.length > 2
+          = partial '/_partials/article-card', locals: { article: articles[2], classes: %w(tile is-child) }
+        - else
+          .tile.is-child.card.article
+            .card-content
+              h2.article-title More to come…
+              p.excerpt Watch this space!
+= partial '_partials/contact'
+section#clients.section
+  .container
+    .columns.is-mobile
+      .column.text.is-hidden-mobile
+        p.title Our Clients
+      - data.clients.each_with_index do |client_name, idx|
+        .column class=(idx > 2 ? 'is-hidden-mobile' : '')
+          figure.image: img src=(asset_url %(logo-#{client_name.downcase}.svg), 'img/client') alt=client_name

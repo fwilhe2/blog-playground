@@ -1,0 +1,32 @@
+---
+title: Blog
+---
+- articles = blog.articles
+- featured_article = articles[0]
+- remaining_articles = articles - [featured_article]
+header.header role='banner'
+  = partial '/_partials/navbar', locals: { color: 'dark' }
+section.hero.is-primary.is-bold.is-small
+  .hero-body
+    .container
+      .columns.is-vcentered.is-gapless.is-mobile
+        .column
+          h1.title.is-size-3.is-spaced = data.site.blog.title
+          p.subtitle.is-size-5 = data.site.blog.subtitle
+        .column.is-narrow
+          a href=(asset_url 'blog/feed.xml') : span.icon.is-large.is-size-1 : i.fa.fa-rss
+main.blog-menu role='main'
+  section.section.is-small.feature
+    .container
+      .tags.cloud
+        i.fa.fa-tags.label.is-medium
+        /span.label.is-medium> Tags:
+        - blog.tags.keys.sort.each do |tag|
+          = link_to tag, (tag_path tag), class: 'tag is-light is-medium'
+      = partial '/_partials/article-card', locals: { article: featured_article, featured: true }
+  section.section
+    .container
+      .columns.is-multiline
+        - remaining_articles.each do |article|
+          .column.is-one-third
+            = partial '/_partials/article-card', locals: { article: article }
