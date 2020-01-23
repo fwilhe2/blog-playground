@@ -2,7 +2,7 @@ autoload :FileUtils, 'fileutils'
 
 desc 'Execute the middleman build command'
 task :build do
-  run 'middleman build --no-clean -e production'
+  run 'middleman build --verbose --no-clean -e production'
 end
 
 namespace :deploy do
