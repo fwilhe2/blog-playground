@@ -46,7 +46,7 @@ activate :asciidoc, attributes: ['idprefix=_', 'idseparator=-', 'sectanchors=aft
 activate :blog do |blog|
   blog.prefix = 'blog'
   blog.default_extension = '.adoc'
-  blog.layout = 'article'
+  blog.layout = false
   blog.tag_template = 'blog/tag'
   blog.sources = '{seq}-{title}.html'
   blog.permalink = '{title}.html'
